@@ -3,6 +3,7 @@ import 'package:movies_app/core/Resources/routes_manager.dart';
 import 'package:movies_app/core/Resources/theme_manager.dart';
 import 'package:movies_app/core/util/injection.dart';
 import 'package:movies_app/core/util/navigator.dart';
+import 'package:movies_app/core/util/notifications.dart';
 import 'package:overlay_support/overlay_support.dart';
 
 // ignore: must_be_immutable
@@ -19,6 +20,8 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
+    locator.get<NotificationManager>().onForegroundNotification();
+    locator.get<NotificationManager>().onBackgroundNotification();
     super.initState();
   }
 

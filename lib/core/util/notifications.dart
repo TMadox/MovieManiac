@@ -50,6 +50,5 @@ class NotificationManager {
     );
   }
 
-  Future<void> onBackgroundNotification(
-      {required RemoteMessage message, required BuildContext context}) async {}
+  Future<void> onBackgroundNotification() async {}
 }

@@ -32,7 +32,6 @@ class SplashView extends ConsumerWidget {
               .get<NavigatorService>()
               .navigateTo(route, arguments: parameters["id"]);
         });
-        locator.get<NotificationManager>().onForegroundNotification();
         return const MoviesView();
       },
       splash: Image.asset(
