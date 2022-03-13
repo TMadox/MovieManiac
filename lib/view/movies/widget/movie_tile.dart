@@ -48,24 +48,25 @@ class MovieTile extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  AutoSizeText(
-                    movie.title.toString(),
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(2),
-                      child: AutoSizeText(
-                        movie.overview.toString(),
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
+              child: Padding(
+                padding: const EdgeInsets.all(1),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    AutoSizeText(
+                      movie.title.toString(),
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(2),
+                        child: AutoSizeText(
+                          movie.overview.toString(),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
