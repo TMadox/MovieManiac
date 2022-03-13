@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:movies_app/core/Resources/constants_manager.dart';
 import 'package:movies_app/core/Resources/routes_manager.dart';
+import 'package:movies_app/core/Resources/screen_size.dart';
 // import 'package:movies_app/core/util/injection.dart';
 // import 'package:movies_app/core/util/navigator.dart';
 import 'package:movies_app/data/models/movies_model.dart';
@@ -36,6 +37,7 @@ class MovieTile extends StatelessWidget {
                   topRight: Radius.circular(10),
                 ),
                 child: CachedNetworkImage(
+                  height: screenHeight(context) * 0.16,
                   imageUrl: ConstantsManager.imageBaseUrl +
                       movie.backdropPath.toString(),
                 ),
