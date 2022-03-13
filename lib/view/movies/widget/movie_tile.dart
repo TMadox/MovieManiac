@@ -29,34 +29,45 @@ class MovieTile extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(4),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  topRight: Radius.circular(10),
-                ),
-                child: CachedNetworkImage(
-                  height: screenHeight(context) * 0.16,
-                  imageUrl: ConstantsManager.imageBaseUrl +
-                      movie.backdropPath.toString(),
-                ),
+            Expanded(
+              flex: 2,
+              child: CachedNetworkImage(
+                fit: BoxFit.cover,
+                imageBuilder: (context, image) {
+                  return Container(
+                      decoration: BoxDecoration(
+                    image: DecorationImage(image: image, fit: BoxFit.cover),
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      topRight: Radius.circular(10),
+                    ),
+                  ));
+                },
+                imageUrl: ConstantsManager.imageBaseUrl +
+                    movie.backdropPath.toString(),
               ),
             ),
             Expanded(
-              child: ListTile(
-                isThreeLine: true,
-                contentPadding: const EdgeInsets.symmetric(horizontal: 4),
-                title: Text(
-                  movie.title.toString(),
-                ),
-                subtitle: AutoSizeText(
-                  movie.overview.toString(),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  AutoSizeText(
+                    movie.title.toString(),
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(2),
+                      child: AutoSizeText(
+                        movie.overview.toString(),
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            )
+            ),
           ],
         ),
       ),
