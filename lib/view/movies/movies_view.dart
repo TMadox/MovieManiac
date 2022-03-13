@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:movies_app/core/util/injection.dart';
-import 'package:movies_app/core/util/navigator.dart';
 import 'package:movies_app/view/movies/movies_viewmodel.dart';
 import 'package:movies_app/view/movies/widget/movie_tile.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';

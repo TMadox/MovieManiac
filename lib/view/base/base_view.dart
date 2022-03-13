@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,9 +6,7 @@ import 'package:movies_app/core/Resources/routes_manager.dart';
 import 'package:movies_app/core/Resources/theme_manager.dart';
 import 'package:movies_app/core/util/deep_linking.dart';
 import 'package:movies_app/core/util/injection.dart';
-import 'package:movies_app/core/util/navigator.dart';
 import 'package:movies_app/core/util/notifications.dart';
-import 'package:movies_app/data/models/details_arguments_model.dart';
 import 'package:movies_app/view/details/details_view.dart';
 import 'package:movies_app/view/movies/movies_view.dart';
 import 'package:movies_app/view/splash/splash_view.dart';
@@ -41,7 +38,7 @@ class _MyAppState extends State<MyApp> {
         String route = Uri.parse(event["link"]).path;
         if (event["first"]) {
           Get.offNamed(
-            Routes.splashRoute,
+            AppRoutes.splashRoute,
             parameters: {"next_route": route, "movie_id": parameters["id"]},
             preventDuplicates: false,
           );
@@ -66,10 +63,10 @@ class _MyAppState extends State<MyApp> {
       // initialRoute: Routes.splashRoute,
       theme: ThemeManger.lightTheme,
       getPages: [
-        GetPage(name: Routes.moviesRoute, page: () => const MoviesView()),
-        GetPage(name: Routes.detailsRoute, page: () => const DetailsView()),
+        GetPage(name: AppRoutes.moviesRoute, page: () => const MoviesView()),
+        GetPage(name: AppRoutes.detailsRoute, page: () => const DetailsView()),
         GetPage(
-          name: Routes.splashRoute,
+          name: AppRoutes.splashRoute,
           page: () => const SplashView(),
         )
       ],

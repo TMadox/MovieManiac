@@ -15,25 +15,23 @@ class SplashView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return AnimatedSplashScreen.withScreenFunction(
-        screenFunction: () async {
-          await ref.read(moviesState).reloadMovies();
-          if (Get.parameters["next_route"] != null) {
-            final params = Get.parameters;
-            Get.offNamed(Routes.moviesRoute);
-            await Get.toNamed(params["next_route"].toString(),
-                arguments: params["movie_id"]);
-            return const DetailsView();
-          } else {
-            return const MoviesView();
-          }
-        },
-        disableNavigation: true,
-        duration: 0,
-        splash: Text((Get.parameters["next_route"] != null).toString())
-        // splash: Image.asset(
-        //   "assets/splash_loading.gif",
-        // ),
-
-        );
+      screenFunction: () async {
+        await ref.read(moviesState).reloadMovies();
+        if (Get.parameters["next_route"] != null) {
+          final params = Get.parameters;
+          Get.offNamed(AppRoutes.moviesRoute);
+          await Get.toNamed(params["next_route"].toString(),
+              arguments: params["movie_id"]);
+          return const DetailsView();
+        } else {
+          return const MoviesView();
+        }
+      },
+      disableNavigation: true,
+      duration: 0,
+      splash: Image.asset(
+        "assets/splash_loading.gif",
+      ),
+    );
   }
 }

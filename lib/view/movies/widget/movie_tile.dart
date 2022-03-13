@@ -16,7 +16,7 @@ class MovieTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.toNamed(Routes.detailsRoute, arguments: movie.id);
+        Get.toNamed(AppRoutes.detailsRoute, arguments: movie.id);
         // locator
         //     .get<NavigatorService>()
         //     .navigateTo(Routes.detailsRoute, arguments: movie.id.toString());
