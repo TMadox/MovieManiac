@@ -8,19 +8,24 @@ class DeepLinking {
 
   static const platform = MethodChannel('poc.deeplink.flutter.dev/channel');
 
-  final StreamController<String> _stateController = StreamController();
+  final StreamController<Map> _stateController = StreamController();
 
-  Stream<String> get state => _stateController.stream;
+  Stream<Map> get state => _stateController.stream;
 
-  Sink<String> get stateSink => _stateController.sink;
+  Sink<Map> get stateSink => _stateController.sink;
 
-  _onRedirected(String uri) {
-    stateSink.add(uri);
+  _onRedirected(Map input) {
+    stateSink.add(input);
   }
 
   DeepLinking() {
-    startUri().then(_onRedirected);
-    stream.receiveBroadcastStream().listen((d) => _onRedirected(d));
+    startUri().then((value) {
+      log("first start");
+      _onRedirected({"link": value, "first": true});
+    });
+    stream
+        .receiveBroadcastStream()
+        .listen((value) => _onRedirected({"link": value, "first": false}));
   }
 
   Future<String> startUri() async {

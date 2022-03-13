@@ -1,10 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:movies_app/core/Resources/constants_manager.dart';
 import 'package:movies_app/core/Resources/routes_manager.dart';
-import 'package:movies_app/core/util/injection.dart';
-import 'package:movies_app/core/util/navigator.dart';
+// import 'package:movies_app/core/util/injection.dart';
+// import 'package:movies_app/core/util/navigator.dart';
 import 'package:movies_app/data/models/movies_model.dart';
 
 class MovieTile extends StatelessWidget {
@@ -15,9 +16,10 @@ class MovieTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        locator
-            .get<NavigatorService>()
-            .navigateTo(Routes.detailsRoute, arguments: movie.id.toString());
+        Get.toNamed(Routes.detailsRoute, arguments: movie.id);
+        // locator
+        //     .get<NavigatorService>()
+        //     .navigateTo(Routes.detailsRoute, arguments: movie.id.toString());
       },
       child: Card(
         shape: RoundedRectangleBorder(

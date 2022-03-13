@@ -9,6 +9,7 @@ class ThemeManger {
       labelColor: Colors.white,
       unselectedLabelColor: Colors.white,
     ),
+    backgroundColor: Colors.black,
     appBarTheme: const AppBarTheme(
       backgroundColor: Color.fromARGB(255, 121, 10, 212),
       titleTextStyle: TextStyle(

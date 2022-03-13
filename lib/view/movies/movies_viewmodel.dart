@@ -24,7 +24,7 @@ class MoviesViewmodel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> reloadMovies() async {
+  Future<bool> reloadMovies() async {
     MoviesResponse moviesResponse = MoviesResponse.fromJson(
       await locator.get<GetRepo>().get(
         ConstantsManager.topRatedMoviesPath,
@@ -34,5 +34,6 @@ class MoviesViewmodel extends ChangeNotifier {
     currentResponse = moviesResponse;
     moviesList = List.from(moviesResponse.results ?? []);
     notifyListeners();
+    return true;
   }
 }

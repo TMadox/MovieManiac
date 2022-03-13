@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:movies_app/view/details/details_viewmodel.dart';
+import 'package:movies_app/core/util/injection.dart';
+import 'package:movies_app/core/util/navigator.dart';
 import 'package:movies_app/view/movies/movies_viewmodel.dart';
 import 'package:movies_app/view/movies/widget/movie_tile.dart';
-import 'package:overlay_support/overlay_support.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class MoviesView extends ConsumerStatefulWidget {
@@ -23,9 +23,6 @@ class _MoviesViewState extends ConsumerState<MoviesView> {
       appBar: AppBar(
         title: const Text("Top Movies"),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        
-      }),
       body: AnimationLimiter(
         child: SmartRefresher(
           primary: true,
