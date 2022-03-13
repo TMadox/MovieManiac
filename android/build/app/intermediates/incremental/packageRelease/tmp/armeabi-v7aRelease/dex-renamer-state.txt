@@ -1,4 +1,0 @@
-#Sun Mar 13 03:18:58 EET 2022
-base.0=F\:\\AndroidProjects\\movies_app\\android\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
